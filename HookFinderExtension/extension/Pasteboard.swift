@@ -11,6 +11,7 @@ import AppKit
 
 extension NSPasteboard {
 	static func setClipboard(_ content: String) {
+		self.general.clearContents()
 		self.general.setString(content, forType: .URL)
 	}
 }

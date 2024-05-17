@@ -35,11 +35,11 @@ class FileOperationManager {
     }
 
     static func getFileLink(_ path: URL) -> String {
-        return "file://" + path.absoluteString
+        return path.absoluteString
     }
 
     static func getMDLink(_ path: URL) -> String {
         let filename = path.lastPathComponent.split(separator: ".").first
-        return "[\(filename ?? path.lastPathComponent)]" + "(" + path.absoluteString + ")"
+		return "[\(filename ?? "\(path.lastPathComponent)")]" + "(" + path.relativePath + ")"
     }
 }
