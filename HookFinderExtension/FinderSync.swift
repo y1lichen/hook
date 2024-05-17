@@ -24,7 +24,7 @@ class FinderSync: FIFinderSync {
 //        FIFinderSyncController.default().setBadgeImage(NSImage(named: NSImage.colorPanelName)!, label: "Status One" , forBadgeIdentifier: "One")
 //        FIFinderSyncController.default().setBadgeImage(NSImage(named: NSImage.cautionName)!, label: "Status Two", forBadgeIdentifier: "Two")
 		// 建立預設資料夾
-		FileOperationManager.createDefaultDirectory()
+		FileOperationManager.shared.createDefaultDirectory()
     }
     
     // MARK: - Primary Finder Sync protocol methods
@@ -51,18 +51,17 @@ class FinderSync: FIFinderSync {
     }
     
     // MARK: - Menu and toolbar item support
-    
-    override var toolbarItemName: String {
-        return "FinderSy"
-    }
-    
-    override var toolbarItemToolTip: String {
-        return "FinderSy: Click the toolbar item for a menu."
-    }
-    
-    override var toolbarItemImage: NSImage {
-        return NSImage(named: NSImage.cautionName)!
-    }
+//    override var toolbarItemName: String {
+//        return "FinderSy"
+//    }
+//    
+//    override var toolbarItemToolTip: String {
+//        return "FinderSy: Click the toolbar item for a menu."
+//    }
+//    
+//    override var toolbarItemImage: NSImage {
+//        return NSImage(named: NSImage.cautionName)!
+//    }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
         // Produce a menu for the extension.
@@ -79,9 +78,9 @@ class FinderSync: FIFinderSync {
 //        NSLog("sampleAction: menu item: %@, target = %@, items = ", item.title as NSString, target!.path as NSString)
         for obj in items! {
 //            NSLog("    %@", obj.path as NSString)
-			let path = FileOperationManager.createAlias(fromPath: obj.relativePath, toPath: FileOperationManager.defaultDir + obj.lastPathComponent)
+			let path = FileOperationManager.shared.createAlias(fromPath: obj.relativePath, toPath: FileOperationManager.shared.defaultDir + obj.lastPathComponent)
 			if path != nil {
-				NSPasteboard.setClipboard(FileOperationManager.getFileLink(path!))
+				NSPasteboard.setClipboard(FileOperationManager.shared.getFileLink(path!))
 			}
         }
     }

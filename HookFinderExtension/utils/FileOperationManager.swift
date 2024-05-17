@@ -6,19 +6,21 @@
 //
 
 import Foundation
+import FinderSync
 
 class FileOperationManager {
-    static let defaultDir = NSHomeDirectory() + "/Documents/Hook/"
-    static func createDefaultDirectory() {
+	let defaultDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/Hook/"
+	static let shared = FileOperationManager()
+    func createDefaultDirectory() {
         do {
             NSLog(NSHomeDirectory().description)
             try FileManager.default.createDirectory(atPath: defaultDir, withIntermediateDirectories: false, attributes: nil)
         } catch {
-            //			print(error)
+			print(error)
         }
     }
 
-    static func createAlias(fromPath: String, toPath: String) -> URL? {
+    func createAlias(fromPath: String, toPath: String) -> URL? {
         if fromPath.isEmpty || toPath.isEmpty {
             return nil
         }
@@ -34,11 +36,11 @@ class FileOperationManager {
         }
     }
 
-    static func getFileLink(_ path: URL) -> String {
+    func getFileLink(_ path: URL) -> String {
         return path.absoluteString
     }
 
-    static func getMDLink(_ path: URL) -> String {
+    func getMDLink(_ path: URL) -> String {
         let filename = path.lastPathComponent.split(separator: ".").first
 		return "[\(filename ?? "\(path.lastPathComponent)")]" + "(" + path.relativePath + ")"
     }

@@ -5,13 +5,13 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSExtension</key>
-	<dict>
-		<key>NSExtensionAttributes</key>
-		<dict/>
-		<key>NSExtensionPointIdentifier</key>
-		<string>com.apple.FinderSync</string>
-		<key>NSExtensionPrincipalClass</key>
-		<string>$(PRODUCT_MODULE_NAME).FinderSync</string>
-	</dict>
+    <dict>
+        <key>NSExtensionAttributes</key>
+        <dict/>
+        <key>NSExtensionPointIdentifier</key>
+        <string>com.apple.FinderSync</string>
+        <key>NSExtensionPrincipalClass</key>
+        <string>$(PRODUCT_MODULE_NAME).FinderSync</string>
+    </dict>
 </dict>
 </plist>

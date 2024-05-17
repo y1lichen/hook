@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
+import FinderSync
 
 @main
 struct HookApp: App {
     let persistenceController = PersistenceController.shared
-
+	
+	init() {
+		if !FIFinderSyncController.isExtensionEnabled {
+			FIFinderSyncController.showExtensionManagementInterface()
+		}
+	}
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LinksView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
-    }
+	}
 }
