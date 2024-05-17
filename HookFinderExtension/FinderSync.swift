@@ -24,7 +24,7 @@ class FinderSync: FIFinderSync {
 //        FIFinderSyncController.default().setBadgeImage(NSImage(named: NSImage.colorPanelName)!, label: "Status One" , forBadgeIdentifier: "One")
 //        FIFinderSyncController.default().setBadgeImage(NSImage(named: NSImage.cautionName)!, label: "Status Two", forBadgeIdentifier: "Two")
 		// 建立預設資料夾
-		FileMenuManager.createDefaultDirectory()
+		FileOperationManager.createDefaultDirectory()
     }
     
     // MARK: - Primary Finder Sync protocol methods
@@ -79,9 +79,9 @@ class FinderSync: FIFinderSync {
 //        NSLog("sampleAction: menu item: %@, target = %@, items = ", item.title as NSString, target!.path as NSString)
         for obj in items! {
 //            NSLog("    %@", obj.path as NSString)
-			let path = FileMenuManager.createAlias(fromPath: obj.relativePath, toPath: FileMenuManager.defaultDir + obj.lastPathComponent)
+			let path = FileOperationManager.createAlias(fromPath: obj.relativePath, toPath: FileOperationManager.defaultDir + obj.lastPathComponent)
 			if path != nil {
-				NSPasteboard.setClipboard(FileMenuManager.getFileLink(path!))
+				NSPasteboard.setClipboard(FileOperationManager.getFileLink(path!))
 			}
         }
     }
