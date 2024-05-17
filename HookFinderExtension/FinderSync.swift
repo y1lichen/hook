@@ -79,7 +79,10 @@ class FinderSync: FIFinderSync {
 //        NSLog("sampleAction: menu item: %@, target = %@, items = ", item.title as NSString, target!.path as NSString)
         for obj in items! {
 //            NSLog("    %@", obj.path as NSString)
-			FileMenuManager.createSymLink(fromPath: obj.relativePath, toDestinationPath: FileMenuManager.defaultDir + obj.lastPathComponent)
+			let path = FileMenuManager.createAlias(fromPath: obj.relativePath, toPath: FileMenuManager.defaultDir + obj.lastPathComponent)
+			if path != nil {
+				NSPasteboard.setClipboard(FileMenuManager.getFileLink(path!))
+			}
         }
     }
 

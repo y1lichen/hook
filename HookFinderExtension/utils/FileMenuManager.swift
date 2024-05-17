@@ -18,17 +18,28 @@ class FileMenuManager {
         }
     }
 	
-	static func createSymLink(fromPath: String, toDestinationPath: String) {
-		if fromPath.isEmpty || toDestinationPath .isEmpty {
-			return
+	static func createAlias(fromPath: String, toPath: String) -> URL? {
+		if fromPath.isEmpty || toPath .isEmpty {
+			return nil
 		}
 		do {
 			let url = URL(fileURLWithPath: fromPath)
-			let aliasUrl = URL(fileURLWithPath: toDestinationPath)
+			let aliasUrl = URL(fileURLWithPath: toPath)
 			let data = try url.bookmarkData(options: .suitableForBookmarkFile, includingResourceValuesForKeys: nil, relativeTo: nil)
 			try URL.writeBookmarkData(data, to: aliasUrl)
+			return aliasUrl
 		} catch {
 			NSLog(error.localizedDescription)
+			return nil
 		}
+	}
+	
+	static func getFileLink(_ path: URL) -> String {
+		return "file://" + path.absoluteString
+	}
+	
+	static func getMDLink(_ path: URL) -> String {
+		let filename = path.lastPathComponent.split(separator: ".").first
+		return "[\(filename ?? path.lastPathComponent)]" + "(" + path.absoluteString + ")"
 	}
 }

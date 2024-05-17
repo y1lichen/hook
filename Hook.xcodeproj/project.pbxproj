@@ -19,6 +19,7 @@
 		D40E288F2BF6F71200E8FF85 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40E288E2BF6F71200E8FF85 /* FinderSync.swift */; };
 		D40E28942BF6F71200E8FF85 /* HookFinderExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D40E288C2BF6F71200E8FF85 /* HookFinderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D40E289B2BF6F9D500E8FF85 /* FileMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40E289A2BF6F9D500E8FF85 /* FileMenuManager.swift */; };
+		D40E289D2BF70CE300E8FF85 /* Pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40E289C2BF70CE300E8FF85 /* Pasteboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		D40E28902BF6F71200E8FF85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D40E28912BF6F71200E8FF85 /* HookFinderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HookFinderExtension.entitlements; sourceTree = "<group>"; };
 		D40E289A2BF6F9D500E8FF85 /* FileMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMenuManager.swift; sourceTree = "<group>"; };
+		D40E289C2BF70CE300E8FF85 /* Pasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasteboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		D40E288D2BF6F71200E8FF85 /* HookFinderExtension */ = {
 			isa = PBXGroup;
 			children = (
+				D40E289E2BF70E4D00E8FF85 /* extension */,
 				D40E28992BF6F9B600E8FF85 /* utils */,
 				D40E288E2BF6F71200E8FF85 /* FinderSync.swift */,
 				D40E28902BF6F71200E8FF85 /* Info.plist */,
@@ -206,6 +209,14 @@
 				D40E289A2BF6F9D500E8FF85 /* FileMenuManager.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		D40E289E2BF70E4D00E8FF85 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				D40E289C2BF70CE300E8FF85 /* Pasteboard.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D40E288F2BF6F71200E8FF85 /* FinderSync.swift in Sources */,
+				D40E289D2BF70CE300E8FF85 /* Pasteboard.swift in Sources */,
 				D40E289B2BF6F9D500E8FF85 /* FileMenuManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
