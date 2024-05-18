@@ -9,12 +9,11 @@ import Foundation
 import FinderSync
 
 class FileOperationManager {
-	let defaultDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/Hook/"
+	let defaultDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.jefferson.Hook")!.absoluteString + "Hook/"
 	static let shared = FileOperationManager()
     func createDefaultDirectory() {
         do {
-            NSLog(NSHomeDirectory().description)
-            try FileManager.default.createDirectory(atPath: defaultDir, withIntermediateDirectories: false, attributes: nil)
+			try FileManager.default.createDirectory(atPath: defaultDir, withIntermediateDirectories: true, attributes: nil)
         } catch {
 			print(error)
         }

@@ -7,12 +7,25 @@
 		<key>Hook.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>HookFinderExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D40E28522BF6F69200E8FF85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D40E288B2BF6F71200E8FF85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
